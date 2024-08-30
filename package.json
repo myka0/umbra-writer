@@ -10,7 +10,33 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@tiptap/extension-color": "^2.6.6",
+    "@tiptap/extension-font-family": "^2.6.6",
+    "@tiptap/extension-image": "^2.6.6",
+    "@tiptap/extension-list-item": "^2.6.6",
+    "@tiptap/extension-subscript": "^2.6.6",
+    "@tiptap/extension-superscript": "^2.6.6",
+    "@tiptap/extension-text-align": "^2.6.6",
+    "@tiptap/extension-text-style": "^2.6.6",
+    "@tiptap/extension-typography": "^2.6.6",
+    "@tiptap/extension-underline": "^2.6.6",
+    "@tiptap/pm": "^2.6.6",
+    "@tiptap/starter-kit": "^2.6.6",
+    "@tiptap/vue-3": "^2.6.6",
     "nuxt": "^3.13.0",
-    "vue": "latest"
+    "tailwindcss-animate": "^1.0.7",
+    "tiptap-extension-font-size": "^1.2.0",
+    "vue": "latest",
+    "vue-material-design-icons": "^5.3.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/color-mode": "^3.4.4",
+    "@tailwindcss/typography": "^0.5.15",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.41",
+    "prettier": "3.3.3",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4"
   }
 }
