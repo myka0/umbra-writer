@@ -1,8 +1,17 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/color-mode",
+    "@sidebase/nuxt-auth",
+  ],
+
+  runtimeConfig: {
+    API_ENCRYPTION_SECRET: process.env.API_ENCRYPTION_SECRET,
+    GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
+    GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
+  },
 
   tailwindcss: {
     cssPath: "~/assets/css/tailwind.css",
@@ -15,5 +24,21 @@ export default defineNuxtConfig({
 
   colorMode: {
     classSuffix: "",
+  },
+
+  auth: { 
+    isEnabled: true,
+    globalAppMiddleware: true,
+    disableServerSideAuth: false,
+    baseURL: 'http://localhost:3001/api/auth',
+    provider: {
+      type: 'authjs',
+      trustHost: false,
+      addDefaultCallbackUrl: true
+    },
+    sessionRefresh: {
+      enablePeriodically: true,
+      enableOnWindowFocus: true,
+    },
   },
 });
