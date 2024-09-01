@@ -26,22 +26,19 @@ export default NuxtAuthHandler({
     signIn: '/auth/signin',
     error: '/auth/error',
   },
-
   adapter: PrismaAdapter(prisma),
   callbacks: {
     session: async ({ session, user, token }) => {
       const me = await getMe(session)
 
-      if (session.user) {
-        session.user.id = user.id
-      }
-
+      ;(session as any).user.id = me?.userId
       ;(session as any).subscribed = me?.subscribed
       return Promise.resolve(session)
     },
-  },
 
-  secret: runtimeConfig.API_ENCRYPTION_SECRET,
+  },
+  // A secret string you define, to ensure correct encryption
+  secret: 'your-secret-here',
   providers: [
     // @ts-expect-error Use .default here for it to work during SSR.
     GithubProvider.default({
@@ -61,5 +58,36 @@ export default NuxtAuthHandler({
         }
       }
     }),
-  ]
+
+    // @ts-expect-error
+    CredentialsProvider.default({
+      name: 'Credentials',
+      credentials: {
+        email: { label: 'Email', type: 'text' },
+        password: { label: 'Password', type: 'password' },
+      },
+      async authorize(credentials: any) {
+        const user = await prisma.user.findFirst({
+          where: {
+            email: credentials.email,
+          },
+        })
+
+        if (!user) {
+          throw new Error('No user found')
+        }
+
+        const isValid = await bcrypt.compare(credentials.password, user.password)
+
+        if (!isValid) {
+          throw new Error('Invalid password')
+        }
+
+        return user
+      },
+    }),
+  ],
+  session: {
+    strategy: 'jwt',
+  },
 })

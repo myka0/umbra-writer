@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
     "@sidebase/nuxt-auth",
+    "@nuxt/fonts",
   ],
 
   runtimeConfig: {
@@ -12,6 +13,13 @@ export default defineNuxtConfig({
     GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,
   },
+
+  components : [
+    {
+      path: '~/components',
+      pathPrefix : false,    
+    },
+  ],
 
   tailwindcss: {
     cssPath: "~/assets/css/tailwind.css",

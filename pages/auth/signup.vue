@@ -16,7 +16,7 @@ definePageMeta({
     <h1
       class="text-4xl font-semibold text-center mb-8"
     >
-      Welcome Back
+      Create an account
     </h1>
     <SigninButton @click="signIn('google')">
       <GoogleIcon />
@@ -31,7 +31,7 @@ definePageMeta({
       <p class="mx-8 text-medium text-neutral-500">or</p>
       <div class="bg-neutral-500 h-0.5 w-full"></div>
     </div>
-    <SigninForm />
+    <SignupForm />
   </div>
 </template>
 
