@@ -1,24 +1,22 @@
-import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcrypt'
-import { defineEventHandler, readBody } from 'h3'
+import { readBody } from 'h3'
 
-const prisma = new PrismaClient()
 
-export default defineEventHandler(async (event) => {
-  const { email, username, password } = await readBody(event)
+export default eventHandler(async (event) => {
+  const { email, name, password } = await readBody(event)
 
   // Hash the password before saving to the database
   const hashedPassword = await bcrypt.hash(password, 10)
 
   try {
-    const user = await prisma.user.create({
+    const user = await event.context.prisma.user.create({
       data: {
         email,
         password: hashedPassword,
       },
     })
 
-    await prisma.account.create({
+    await event.context.prisma.account.create({
       data: {
         user: {
           connect: {

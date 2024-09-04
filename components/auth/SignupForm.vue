@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
 
 const email = ref('')
 const password = ref('')
@@ -10,7 +7,7 @@ const confirmPassword = ref('')
 const errorMessage = ref('')
 const successMessage = ref('')
 
-const handleSignup = async () => {
+const userSignup = async () => {
   errorMessage.value = ''
   successMessage.value = ''
 
@@ -20,7 +17,7 @@ const handleSignup = async () => {
   }
 
   try {
-    const response = await fetch('/api/auth/signup', {
+    const data = await $fetch('/api/auth/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -31,12 +28,10 @@ const handleSignup = async () => {
       }),
     })
 
-    const data = await response.json()
-
     if (data.success) {
       successMessage.value = 'User created successfully! Redirecting...'
       setTimeout(() => {
-        router.push('/auth/signin')
+        navigateTo('/auth/signin')
       }, 2000)
     } else {
       errorMessage.value = data.message
@@ -51,7 +46,7 @@ const handleSignup = async () => {
 <template>
   <form 
     class="space-y-4 md:space-y-6 w-80" action="#"
-    @submit.prevent="handleSignup"
+    @submit.prevent="userSignup"
   >
 
     <div>
