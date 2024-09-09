@@ -37,10 +37,10 @@ export default {
   <div class="flex flex-col items-start">
     <a 
       @click="createDocument"         
-      class="flex items-center py-2 px-4 rounded-xl cursor-pointer transition-colors duration-150 font-medium text-lg bg-neutral-50 text-neutral-900 hover:bg-neutral-300"
+      class="flex items-center"
     >
       Create
-      <PlusIcon :size="36" class="inline-block ml-1" />
+      <PlusIcon :size="32" class="inline-block ml-1" />
     </a>
   </div>
 </template>

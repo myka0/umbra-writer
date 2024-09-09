@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useRoute, useFetch } from '#app'
 import { DocumentIcon } from '@/components/icons'
@@ -19,7 +19,7 @@ if (error.value) {
 }
 
 // Function to save document with debounce
-const saveDocument = async (update) => {
+const saveDocument = async (update: any) => {
   // Clear the previous timeout to debounce the save operation
   if (saveTimeout) {
     clearTimeout(saveTimeout)

@@ -100,7 +100,8 @@ export default {
     <div class="w-full max-w-3xl p-4">
       <div class="flex justify-between items-center mb-4">
         <h2 class="text-2xl mx-4 font-semibold">Start a new document</h2>
-        <CreateDocument />
+        <CreateDocument 
+          class="py-2 px-4 rounded-xl cursor-pointer transition-colors duration-150 font-medium text-lg bg-neutral-50 text-neutral-900 hover:bg-neutral-300"/>
       </div>
       <div class="grid place-items-center">
         <div class="bg-neutral-500 my-4 h-[1px] w-10/12"></div>
