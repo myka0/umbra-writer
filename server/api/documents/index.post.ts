@@ -13,7 +13,7 @@ export default eventHandler(async (event) => {
         userId: session.user.id,
       },
     })
-   return {
+    return {
       success: true,
       document: newDocument,
     }
@@ -24,4 +24,3 @@ export default eventHandler(async (event) => {
     }
   }
 })
-

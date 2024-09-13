@@ -6,9 +6,11 @@ const password = ref('')
 </script>
 
 <template>
-  <form 
+  <form
     class="space-y-4 md:space-y-6 w-80"
-    @submit.prevent="signIn('credentials', { email: email, password: password })"
+    @submit.prevent="
+      signIn('credentials', { email: email, password: password })
+    "
   >
     <div>
       <label
@@ -21,9 +23,7 @@ const password = ref('')
         type="email"
         name="email"
         id="email"
-        class="bg-neutral-50 border-2 border-neutral-400 text-neutral-900 sm:text-sm rounded-lg block w-full p-2.5 
-               focus:outline focus:outline-2 focus:outline-indigo-600 focus:border-0 focus:mt-2.5 focus:mb-[26px]
-               dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-neutral-50 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        class="bg-neutral-50 border-2 border-neutral-400 text-neutral-900 sm:text-sm rounded-lg block w-full p-2.5 focus:outline focus:outline-2 focus:outline-violet-600 focus:border-0 focus:mt-2.5 focus:mb-[26px] dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-neutral-50 dark:focus:ring-blue-500 dark:focus:border-blue-500"
         placeholder="name@company.com"
         required
       />
@@ -41,9 +41,7 @@ const password = ref('')
         name="password"
         id="password"
         placeholder="••••••••"
-        class="bg-neutral-50 border-2 border-neutral-400 text-neutral-900 sm:text-sm rounded-lg block w-full p-2.5
-               focus:outline focus:outline-2 focus:outline-indigo-600 focus:border-0 focus:mt-2.5 focus:mb-[26px]
-               dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-neutral-50 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        class="bg-neutral-50 border-2 border-neutral-400 text-neutral-900 sm:text-sm rounded-lg block w-full p-2.5 focus:outline focus:outline-2 focus:outline-violet-600 focus:border-0 focus:mt-2.5 focus:mb-[26px] dark:bg-neutral-800 dark:border-neutral-600 dark:placeholder-neutral-400 dark:text-neutral-50 dark:focus:ring-blue-500 dark:focus:border-blue-500"
         required
       />
     </div>
@@ -55,8 +53,7 @@ const password = ref('')
             id="remember"
             aria-describedby="remember"
             type="checkbox"
-            class="w-4 h-4 border border-pink-400 rounded bg-pink-50 focus:ring-3 focus:ring-pink-300 
-                   dark:bg-pink-700 dark:border-pink-600 dark:focus:ring-pink-600 dark:ring-offset-pink-800"
+            class="w-4 h-4 border border-pink-400 rounded bg-pink-50 focus:ring-3 focus:ring-pink-300 dark:bg-pink-700 dark:border-pink-600 dark:focus:ring-pink-600 dark:ring-offset-pink-800"
           />
         </div>
         <div class="ml-3 text-sm">
@@ -67,14 +64,14 @@ const password = ref('')
       </div>
       <a
         href="#"
-        class="text-sm font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+        class="text-sm font-medium text-violet-600 hover:underline dark:text-violet-500"
         >Forgot password?
       </a>
     </div>
 
     <button
       type="submit"
-      class="w-full transition-colors duration-150 text-neutral-50 bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-primary-800"
+      class="w-full transition-colors duration-150 text-neutral-50 bg-violet-600 hover:bg-violet-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-primary-800"
     >
       Sign in
     </button>
@@ -83,7 +80,7 @@ const password = ref('')
       Don’t have an account yet?
       <NuxtLink
         to="/auth/signup"
-        class="ml-1 font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+        class="ml-1 font-medium text-violet-600 hover:underline dark:text-violet-500"
       >
         Sign up
       </NuxtLink>

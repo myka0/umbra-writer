@@ -5,8 +5,8 @@ import { DocumentIcon } from '@/components/icons'
 
 // Fetch the document from the server
 const route = useRoute()
-const { data, error } = await useFetch(`/api/documents/${route.params.id}`, { 
-  method: 'GET' 
+const { data, error } = await useFetch(`/api/documents/${route.params.id}`, {
+  method: 'GET',
 })
 
 const document = ref(data.value.document)
@@ -39,7 +39,7 @@ const saveDocument = async (update: any) => {
       if (!response.ok) {
         throw new Error('Failed to save document')
       }
-      
+
       console.log('Document saved successfully')
     } catch (error) {
       console.error('Error saving document:', error)
@@ -48,32 +48,42 @@ const saveDocument = async (update: any) => {
 }
 
 // Watch for changes in the document's title and content
-watch(() => title.value, async (newTitle) => {
-  saveDocument({
-    title: newTitle,
-    content: content.value
-  })
-}, { deep: true })
+watch(
+  () => title.value,
+  async (newTitle) => {
+    saveDocument({
+      title: newTitle,
+      content: content.value,
+    })
+  },
+  { deep: true }
+)
 
-watch(() => document.value.content, async (newContent) => {
-  saveDocument({
-    title: title.value,
-    content: newContent
-  })
-}, { deep: true })
+watch(
+  () => document.value.content,
+  async (newContent) => {
+    saveDocument({
+      title: title.value,
+      content: newContent,
+    })
+  },
+  { deep: true }
+)
 </script>
 
 <template>
   <div class="container mx-auto w-[1120px]">
     <div class="flex justify-start mt-8">
       <div class="inline-flex items-center">
-        <NuxtLink to="/files" class="text-indigo-500 hover:underline">
+        <NuxtLink
+          to="/files"
+          class="text-violet-600 dark:text-violet-500 hover:underline"
+        >
           <DocumentIcon :size="48" />
         </NuxtLink>
         <input
           v-model="title"
-          class="text-xl font-medium p-2 ml-2 transition-colors duration-100 border border-neutral-750 bg-neutral-900 
-                 hover:border-neutral-500 hover:bg-neutral-800 rounded-md"
+          class="text-xl font-medium p-2 ml-2 transition-colors duration-100 border border-neutral-300 hover:border-neutral-400 hover:bg-neutral-200 bg-neutral-100 dark:border-neutral-750 dark:bg-neutral-900 hover:dark:border-neutral-500 hover:dark:bg-neutral-800 rounded-md"
         />
       </div>
     </div>

@@ -4,14 +4,17 @@ export default {
   props: {
     to: {
       type: String,
-      required: true
+      required: true,
     },
-  }
-};
+  },
+}
 </script>
 
 <template>
-  <NuxtLink :to="to" class="btn-3d inline-block relative rounded-2xl before:absolute before:block">
+  <NuxtLink
+    :to="to"
+    class="btn-3d inline-block relative rounded-2xl before:absolute before:block"
+  >
     <slot />
   </NuxtLink>
 </template>
@@ -19,7 +22,7 @@ export default {
 <style scoped>
 .btn-3d {
   transition: transform 0.2s ease-in-out;
-  transform-style: preserve-3d; 
+  transform-style: preserve-3d;
 }
 
 .btn-3d:before {
@@ -27,7 +30,7 @@ export default {
   left: -2px;
   right: 0;
   bottom: 0;
-  z-index: -1; 
+  z-index: -1;
   transition: transform 0.15s ease-in-out;
   border-radius: 16px;
   transform: translate3d(0, 0, -1px);
@@ -41,4 +44,3 @@ export default {
   transform: translate3d(0.25em, 0.25em, -1px);
 }
 </style>
-

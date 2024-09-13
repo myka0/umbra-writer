@@ -9,15 +9,11 @@ definePageMeta({
 </script>
 
 <template>
-  <ThemeSwitch />
+  <Navbar />
   <div
     class="flex flex-col items-center justify-center w-80 mx-auto h-screen lg:py-0"
   >
-    <h1
-      class="text-4xl font-semibold text-center mb-8"
-    >
-      Welcome Back
-    </h1>
+    <h1 class="text-4xl font-semibold text-center mb-8">Welcome Back</h1>
     <SigninButton @click="signIn('google')">
       <GoogleIcon />
       Sign in with Google
@@ -34,4 +30,3 @@ definePageMeta({
     <SigninForm />
   </div>
 </template>
-

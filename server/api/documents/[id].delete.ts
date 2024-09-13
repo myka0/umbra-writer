@@ -7,20 +7,20 @@ export default defineEventHandler(async (event) => {
 
   try {
     await event.context.prisma.document.delete({
-      where: { 
-        userId: session.user.id, 
-        id: id 
+      where: {
+        userId: session.user.id,
+        id: id,
       },
     })
 
-    return { 
-      success: true, 
-      message: 'Document deleted successfully' }
+    return {
+      success: true,
+      message: 'Document deleted successfully',
+    }
   } catch (error: any) {
-    return { 
-      success: false, 
-      error: error.message 
+    return {
+      success: false,
+      error: error.message,
     }
   }
 })
-

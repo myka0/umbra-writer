@@ -7,26 +7,27 @@ export default defineEventHandler(async (event) => {
 
   try {
     const document = await event.context.prisma.document.findUnique({
-      where: { 
-        userId: session.user.id, 
-        id: id 
+      where: {
+        userId: session.user.id,
+        id: id,
       },
     })
 
     if (!document) {
-      return { 
-        success: false, 
-        error: 'Document not found' }
+      return {
+        success: false,
+        error: 'Document not found',
+      }
     }
 
-    return { 
-      success: true, 
-      document 
+    return {
+      success: true,
+      document,
     }
   } catch (error: any) {
-    return { 
-      success: false, 
-      error: error.message 
+    return {
+      success: false,
+      error: error.message,
     }
   }
 })

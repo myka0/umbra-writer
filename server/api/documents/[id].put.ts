@@ -8,24 +8,24 @@ export default defineEventHandler(async (event) => {
 
   try {
     const updatedDocument = await event.context.prisma.document.update({
-      where: { 
-        userId: session.user.id, 
-        id: id 
+      where: {
+        userId: session.user.id,
+        id: id,
       },
-      data: { 
-        title, 
-        content, 
+      data: {
+        title,
+        content,
       },
     })
 
-    return { 
-      success: true, 
-      document: updatedDocument 
+    return {
+      success: true,
+      document: updatedDocument,
     }
   } catch (error: any) {
-    return { 
-      success: false, 
-      error: error.message 
+    return {
+      success: false,
+      error: error.message,
     }
   }
 })

@@ -1,4 +1,4 @@
-export default eventHandler(async event => {
+export default eventHandler(async (event) => {
   const body = await readBody(event)
   const query = getQuery(event)
   const runtimeConfig = useRuntimeConfig()

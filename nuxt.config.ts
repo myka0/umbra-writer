@@ -1,11 +1,11 @@
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
+  compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxtjs/color-mode",
-    "@sidebase/nuxt-auth",
-    "@nuxt/fonts",
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
+    '@sidebase/nuxt-auth',
+    '@nuxt/fonts',
   ],
 
   runtimeConfig: {
@@ -16,16 +16,16 @@ export default defineNuxtConfig({
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
   },
 
-  components : [
+  components: [
     {
       path: '~/components',
-      pathPrefix : false,    
+      pathPrefix: false,
     },
   ],
 
   tailwindcss: {
-    cssPath: "~/assets/css/tailwind.css",
-    configPath: "tailwind.config.js",
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: 'tailwind.config.js',
     exposeConfig: false,
     config: {},
     injectPosition: 0,
@@ -33,10 +33,10 @@ export default defineNuxtConfig({
   },
 
   colorMode: {
-    classSuffix: "",
+    classSuffix: '',
   },
 
-  auth: { 
+  auth: {
     isEnabled: true,
     globalAppMiddleware: true,
     disableServerSideAuth: false,
@@ -44,11 +44,11 @@ export default defineNuxtConfig({
     provider: {
       type: 'authjs',
       trustHost: false,
-      addDefaultCallbackUrl: true
+      addDefaultCallbackUrl: true,
     },
     sessionRefresh: {
       enablePeriodically: true,
       enableOnWindowFocus: true,
     },
   },
-});
+})

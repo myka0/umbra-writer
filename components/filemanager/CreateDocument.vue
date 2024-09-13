@@ -24,7 +24,6 @@ export default {
 
         // Navigate to the new document's page
         await navigateTo(`/files/${newDocument.document.id}`)
-
       } catch (error) {
         console.error('Failed to create document:', error)
       }
@@ -35,10 +34,7 @@ export default {
 
 <template>
   <div class="flex flex-col items-start">
-    <a 
-      @click="createDocument"         
-      class="flex items-center"
-    >
+    <a @click="createDocument" class="flex items-center">
       Create
       <PlusIcon :size="32" class="inline-block ml-1" />
     </a>

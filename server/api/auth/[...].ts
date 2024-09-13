@@ -35,7 +35,6 @@ export default NuxtAuthHandler({
       ;(session as any).subscribed = me?.subscribed
       return Promise.resolve(session)
     },
-
   },
   // A secret string you define, to ensure correct encryption
   secret: 'your-secret-here',
@@ -45,18 +44,18 @@ export default NuxtAuthHandler({
       clientId: runtimeConfig.GITHUB_CLIENT_ID,
       clientSecret: runtimeConfig.GITHUB_CLIENT_SECRET,
     }),
-    
+
     // @ts-expect-error
     GoogleProvider.default({
       clientId: runtimeConfig.GOOGLE_CLIENT_ID,
       clientSecret: runtimeConfig.GOOGLE_CLIENT_SECRET,
       authorization: {
         params: {
-          prompt: "consent",
-          access_type: "offline",
-          response_type: "code"
-        }
-      }
+          prompt: 'consent',
+          access_type: 'offline',
+          response_type: 'code',
+        },
+      },
     }),
 
     // @ts-expect-error
@@ -77,7 +76,10 @@ export default NuxtAuthHandler({
           throw new Error('No user found')
         }
 
-        const isValid = await bcrypt.compare(credentials.password, user.password)
+        const isValid = await bcrypt.compare(
+          credentials.password,
+          user.password
+        )
 
         if (!isValid) {
           throw new Error('Invalid password')

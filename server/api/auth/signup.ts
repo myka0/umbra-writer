@@ -1,7 +1,6 @@
 import bcrypt from 'bcrypt'
 import { readBody } from 'h3'
 
-
 export default eventHandler(async (event) => {
   const { email, name, password } = await readBody(event)
 
@@ -39,4 +38,3 @@ export default eventHandler(async (event) => {
     }
   }
 })
-
