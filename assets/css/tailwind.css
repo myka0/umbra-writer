@@ -8,6 +8,10 @@
   }
 }
 
+.page-black-bg {
+  @apply bg-black;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

@@ -3,6 +3,7 @@ import { getServerSession } from '#auth'
 export default eventHandler(async (event) => {
   const session = await getServerSession(event)
   const body = await readBody(event)
+  const userId = body.userId || session.user.id
 
   // Create a new document
   try {
@@ -10,7 +11,7 @@ export default eventHandler(async (event) => {
       data: {
         title: body.title,
         content: body.content,
-        userId: session.user.id,
+        userId: userId,
       },
     })
     return {

@@ -11,7 +11,6 @@ export default {
         const payload = {
           title: 'New Document',
           content: '',
-          directoryId: null,
         }
 
         const newDocument = await $fetch('/api/documents', {

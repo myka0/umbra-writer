@@ -4,10 +4,15 @@ import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { PrismaClient } from '@prisma/client'
+import { exampleContent } from '../exampleContent'
 import bcrypt from 'bcrypt'
 
 const runtimeConfig = useRuntimeConfig()
 const prisma = new PrismaClient()
+
+function TestFunction(user: any) {
+  console.log('New user created:', user);
+}
 
 async function getMe(session: any) {
   return await $fetch('/api/me', {
@@ -28,7 +33,7 @@ export default NuxtAuthHandler({
   },
   adapter: PrismaAdapter(prisma),
   callbacks: {
-    session: async ({ session, user, token }) => {
+    session: async ({ session }) => {
       const me = await getMe(session)
 
       ;(session as any).user.id = me?.userId
@@ -36,8 +41,30 @@ export default NuxtAuthHandler({
       return Promise.resolve(session)
     },
   },
-  // A secret string you define, to ensure correct encryption
-  secret: 'your-secret-here',
+  events: {
+    createUser: async ({ user }) => {
+      // Create an example document for new users
+      try {
+        const payload = {
+          title: 'Example Document',
+          content: exampleContent,
+          userId: user.id,
+        }
+
+        await $fetch('/api/documents', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: payload,
+        })
+
+      } catch (error) {
+        console.error('Failed to create example document:', error)
+      }
+    },
+  },
+  secret: runtimeConfig.API_ENCRYPTION_SECRET,
   providers: [
     // @ts-expect-error Use .default here for it to work during SSR.
     GithubProvider.default({

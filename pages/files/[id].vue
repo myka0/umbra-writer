@@ -69,6 +69,10 @@ watch(
   },
   { deep: true }
 )
+
+useHead({
+  title: title.value,
+})
 </script>
 
 <template>

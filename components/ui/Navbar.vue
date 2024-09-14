@@ -6,9 +6,9 @@ const { status, signOut } = useAuth()
 </script>
 
 <template>
-  <ThemeSwitch />
+  <div class="opacity-0">.</div>
   <div
-    class="container w-[42rem] mx-auto my-5 flex items-center gap-x-2 rounded-2xl p-1 bg-neutral-900 text-neutral-100 dark:bg-neutral-100 dark:text-neutral-800"
+    class="container w-[42rem] mt-1 mx-auto flex items-center gap-x-2 rounded-2xl p-1 bg-neutral-900 text-neutral-100 dark:bg-neutral-100 dark:text-neutral-800"
   >
     <NuxtLink to="/" class="font-bold flex items-center gap-x-1 ml-2">
       <LogoIcon

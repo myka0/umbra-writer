@@ -8,6 +8,28 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
   ],
 
+  app: {
+    head: {
+      title: 'Umbra Writer',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Umbra is a simple, open-source, and rich-text editor.',
+        },
+      ],
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: '/favicon.png',
+        },
+      ],
+    },
+  },
+
   runtimeConfig: {
     API_ENCRYPTION_SECRET: process.env.API_ENCRYPTION_SECRET,
     GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,

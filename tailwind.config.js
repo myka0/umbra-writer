@@ -1,5 +1,4 @@
 import typography from '@tailwindcss/typography'
-
 const animate = require('tailwindcss-animate')
 
 /** @type {import('tailwindcss').Config} */
@@ -18,7 +17,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'], // Add your custom font here
+        sans: ['Inter', 'sans-serif'], 
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -147,5 +146,5 @@ module.exports = {
       },
     },
   },
-  plugins: [animate, require('@tailwindcss/typography')],
+  plugins: [animate, typography],
 }

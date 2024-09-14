@@ -107,7 +107,7 @@ export default {
 <template>
   <div class="flex justify-center h-screen">
     <div class="w-full max-w-3xl p-4">
-      <div class="flex justify-between items-center mb-4">
+      <div class="flex justify-between items-center my-4">
         <h2 class="text-2xl mx-4 font-semibold">Start a new document</h2>
         <CreateDocument
           class="py-2 px-4 rounded-xl cursor-pointer transition-colors duration-150 font-medium text-lg bg-neutral-900 text-neutral-100 hover:bg-neutral-750 dark:bg-neutral-50 dark:text-neutral-900 hover:dark:bg-neutral-300"

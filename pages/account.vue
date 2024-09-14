@@ -4,6 +4,10 @@ definePageMeta({
 })
 
 const { data } = useAuth()
+
+useHead({
+  title: 'Account',
+})
 </script>
 
 <template>
