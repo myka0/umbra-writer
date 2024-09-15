@@ -62,7 +62,7 @@ export default defineNuxtConfig({
     isEnabled: true,
     globalAppMiddleware: true,
     disableServerSideAuth: false,
-    baseURL: 'http://localhost:3000/api/auth',
+    baseURL: process.env.BASE_URL + '/api/auth',
     provider: {
       type: 'authjs',
       trustHost: false,
