@@ -4,7 +4,6 @@ import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { PrismaClient } from '@prisma/client'
-import { exampleContent } from '../exampleContent'
 import bcrypt from 'bcrypt'
 
 const runtimeConfig = useRuntimeConfig()
@@ -48,19 +47,18 @@ export default NuxtAuthHandler({
       // Create an example document for new users
       try {
         const payload = {
-          title: 'Example Document',
-          content: exampleContent,
-          userId: user.id,
+          userId: user.id, 
         }
-
-        await $fetch('/api/documents', {
+            
+        await $fetch('/api/createExampleDoc', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: payload,
         })
-
+         
+        console.log('Example document created successfully')
       } catch (error) {
         console.error('Failed to create example document:', error)
       }
