@@ -31,6 +31,7 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    BASE_URL: process.env.BASE_URL,
     API_ENCRYPTION_SECRET: process.env.API_ENCRYPTION_SECRET,
     GITHUB_CLIENT_ID: process.env.GITHUB_CLIENT_ID,
     GITHUB_CLIENT_SECRET: process.env.GITHUB_CLIENT_SECRET,

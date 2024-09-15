@@ -32,7 +32,7 @@ definePageMeta({
             Get Started
           </Button3D>
           <Button3D
-            to="https://github.com"
+            to="https://github.com/myka0/umbra-writer"
             class="px-6 py-3 text-xl text-neutral-100 bg-neutral-900 border-2 border-neutral-100 before:bg-neutral-100 before:border-2 before:border-neutral-100"
           >
             Github

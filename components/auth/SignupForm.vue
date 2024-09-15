@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { exampleContent } from '../../server/api/exampleContent'
 
 const email = ref('')
 const password = ref('')
@@ -30,6 +31,27 @@ const userSignup = async () => {
 
     if (data.success) {
       successMessage.value = 'User created successfully! Redirecting...'
+
+      // Create an example document for new users
+      try {
+        const payload = {
+          title: 'Example Document',
+          content: exampleContent,
+          userId: data.user.id,
+        }
+
+        await $fetch('/api/documents', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: payload,
+        })
+
+      } catch (error) {
+        console.error('Failed to create example document:', error)
+      }
+
       setTimeout(() => {
         navigateTo('/auth/signin')
       }, 2000)

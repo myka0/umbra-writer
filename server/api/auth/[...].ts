@@ -10,10 +10,6 @@ import bcrypt from 'bcrypt'
 const runtimeConfig = useRuntimeConfig()
 const prisma = new PrismaClient()
 
-function TestFunction(user: any) {
-  console.log('New user created:', user);
-}
-
 async function getMe(session: any) {
   return await $fetch('/api/me', {
     method: 'POST',
@@ -39,6 +35,12 @@ export default NuxtAuthHandler({
       ;(session as any).user.id = me?.userId
       ;(session as any).subscribed = me?.subscribed
       return Promise.resolve(session)
+    },
+    async redirect({ url }) {
+      if (url === runtimeConfig.BASE_URL + '/auth/signin') {
+        return Promise.resolve('/files')
+      }
+      return Promise.resolve(url)
     },
   },
   events: {
