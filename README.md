@@ -4,6 +4,8 @@
 
 Umbra Writer is a real-time web-based rich text editor that allows users to write, edit, and format documents. Built with modern technologies like **[Nuxt3](https://nuxt.com/)**, **[Vue.js](https://vuejs.org/)**, and **[TypeScript](https://www.typescriptlang.org/)** the app delivers fast and smooth performance. The demo can be viewed **[here](https://www.umbrawriter.com/)**.
 
+![Screenshot of Umbra Writer](assets/umbra-writer.png)
+
 ## Tech Stack
 
 #### Frontend Framework:
